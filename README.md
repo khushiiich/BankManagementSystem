@@ -42,29 +42,11 @@ PostgreSQL Database
 
 
 ⚙️ Tech Stack
-🔹 Frontend
+🔹 Frontend : React (Vite), Axios, React Router, Context API
 
-React (Vite)
+🔹 Backend : Spring Boot, Spring Web, Spring Data JPA, Hibernate
 
-Axios
-
-React Router DOM
-
-Context API (Theme)
-
-🔹 Backend
-
-Spring Boot
-
-Spring Web
-
-Spring Data JPA
-
-Hibernate
-
-🔹 Database
-
-PostgreSQL
+🔹 Database : PostgreSQL
 
 
 📂 Project Structure
@@ -111,6 +93,5 @@ bank-dashboard
 ├── App.jsx
 └── main.jsx
 
-How It Works
-
+How It Works -
 When a user performs any action on the UI (like creating an account), the request is sent from React to the Spring Boot backend using Axios. The controller receives the request, passes it to the service layer for processing, and then the repository saves or retrieves data from the PostgreSQL database. The response is sent back to the frontend and displayed on the dashboard.
