@@ -1,0 +1,36 @@
+# development 
+# Use Eclipse Temurin (OpenJDK) base image
+#FROM eclipse-temurin:17-jdk
+
+# Create and set working directory
+#WORKDIR /app
+
+# Copy the jar file from target folder to container
+#COPY target/Task-BankManagementSystem-0.0.1-SNAPSHOT.jar app.jar
+
+# Expose the Spring Boot port
+#EXPOSE 8080
+
+# Run the application
+#ENTRYPOINT ["java", "-jar", "app.jar"]
+
+#====================================================
+
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+
+WORKDIR /app
+
+COPY pom.xml .
+COPY src ./src
+
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:21-jdk-jammy
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","app.jar"]
