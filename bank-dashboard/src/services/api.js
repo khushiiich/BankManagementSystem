@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8080/api/accounts",
+  baseURL: "https://bankmanagementsystem-3.onrender.com/api/accounts",
 });
 
 export const getAccounts = () => API.get("/");
