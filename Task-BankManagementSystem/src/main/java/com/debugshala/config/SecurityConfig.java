@@ -16,7 +16,7 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:5173", "http://localhost:3000")
+                .allowedOrigins("http://localhost:5173", "http://localhost:3000","https://bank-management-system-gray.vercel.app")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(false)
@@ -27,7 +27,7 @@ public class SecurityConfig implements WebMvcConfigurer {
     public CorsFilter corsFilter() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(false);
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:3000"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:3000","https://bank-management-system-gray.vercel.app"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         configuration.setMaxAge(3600L);
